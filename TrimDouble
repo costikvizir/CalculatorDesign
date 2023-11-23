@@ -1,0 +1,46 @@
+function truncateDouble(d) {
+    let result;
+    const totalLength = 13;
+    let dToString = d.toString();
+    let indexOfE = dToString.indexOf('e');
+
+    if (indexOfE === -1) {
+        result = dToString.slice(0, totalLength);
+    } else {
+        let suffixLength = dToString.length - indexOfE;
+        let prefixLength = totalLength - suffixLength;
+
+        let suffix = dToString.slice( - suffixLength);
+        let prefix = dToString.slice(0, prefixLength);
+
+        result = prefix.concat(suffix);
+    }
+    return result;    
+}
+
+static double TruncateDouble(double d)
+{
+    double result;
+    string stringResult;
+    const int totalLength = 13;
+    string dToString = d.ToString();
+    int indexOfE = d.ToString().IndexOf('E');
+
+    if (indexOfE == -1)
+    {
+        stringResult = dToString.Substring(0, totalLength);
+        result = double.Parse(stringResult);
+    }
+    else
+    {
+        int suffixLength = dToString.Length - indexOfE;
+        int prefixLength = totalLength - suffixLength;
+
+        string suffix = dToString.Substring(indexOfE, suffixLength);
+        string prefix = dToString.Substring(0, prefixLength);
+
+        stringResult = prefix + suffix;
+        result = double.Parse(stringResult);
+    }
+    return result;
+}
